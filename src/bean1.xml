@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+<!--    集合类型属性的注入-->
+    <bean id="stu" class="com.yx.collectiontype.Stu">
+        <property name="coures">
+            <array>
+                <value>Java课程</value>
+                <value>MySQL课程</value>
+                <value>JavaScript课程</value>
+            </array>
+        </property>
+
+        <property name="courseList">
+            <list>
+                <ref bean="course1"/>
+                <ref bean="course2"/>
+            </list>
+        </property>
+
+        <property name="list">
+            <list>
+                <value>张三</value>
+                <value>李四</value>
+                <value>老王</value>
+            </list>
+        </property>
+
+        <property name="maps">
+            <map>
+                <entry key="Java" value="后端"/>
+                <entry key="Javascript" value="前端"/>
+            </map>
+        </property>
+
+        <property name="sets">
+            <set>
+                <value>CSS</value>
+                <value>html</value>
+                <value>Vue</value>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="course1" class="com.yx.collectiontype.Course">
+        <property name="cname" value="spring5"/>
+    </bean>
+    <bean id="course2" class="com.yx.collectiontype.Course">
+        <property name="cname" value="mybatis框架"/>
+    </bean>
+</beans>

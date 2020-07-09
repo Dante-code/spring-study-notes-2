@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--    提取list集合类型属性注入-->
+
+    <util:list id="bookList">
+        <value>三国演义</value>
+        <value>红楼梦</value>
+        <value>西游记</value>
+        <value>水浒传</value>
+    </util:list>
+
+    <!--    提取list集合类型属性使用-->
+
+    <!--  scope属性值
+  第一个值：默认值 singleton单实例
+  第二个值：prototype,表示多实例对象
+  -->
+    <bean id="book" class="com.yx.collectiontype.Book" scope="prototype">
+        <property name="list" ref="bookList"/>
+    </bean>
+</beans>
